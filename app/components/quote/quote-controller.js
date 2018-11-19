@@ -10,7 +10,8 @@ export default class QuoteController {
 
 	getQuote() {
 		qs.getQuote(function (quote) {
-			console.log('What is the quote', quote)
+			let template = `<h3>${quote}</h3>`
+			document.getElementById("quote").innerHTML = template
 		})
 	}
 }

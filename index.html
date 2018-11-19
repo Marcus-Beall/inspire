@@ -3,28 +3,58 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<!doctype html>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	 crossorigin="anonymous">
+
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="body">
-	<div id="weather">
-		Your Weather Template
+	<div class="container-fluid">
+		<div class="row justify-content-end">
+			<div class="col ">
+				<div id="weather">
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<div id="quote">
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-end fixed-bottom">
+			<nav class="navbar   navi">
+				<a class="navbar-brand" href="#">Your ToDos Go Here</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+				 aria-expanded="true" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse show" id="navbarColor02" style="">
+					<ul class="navbar-nav mr-auto" id="todo"></ul>
+					<form onsubmit="app.controllers.todoController.addToDoFromForm(input)">
+						<input class="form-control" type="text" placeholder="What todos do you have?"><button class="btn btn-secondary justify-content-center"
+						 type="submit">Submit</button>
+
+					</form>
+			</nav>
+		</div>
 	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
-	</div>
-
-
 
 
 	<!--JS Libraries-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+	 crossorigin="anonymous"></script>
+
 	<!--Initialize App-->
 
 	<script type='module' src="app/main.js"></script>
