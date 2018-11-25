@@ -1,4 +1,5 @@
 
+// @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/marcus/todos/',
 	timeout: 3000
@@ -9,7 +10,7 @@ function logError(e) {
 }
 
 
-let todoList = []
+let _todoList = []
 
 export default class TodoService {
 
@@ -17,19 +18,17 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => {
-				todoList = res.data
+				_todoList = res.data.data
 				console.log(res.data)
-				return todoList
-
+				draw(_todoList)
 			})
 			.catch(logError)
 	}
 
-	addTodo(todo, draw) {
+	addTodo(todo, get, draw) {
 		todoApi.post('', todo)
-			.then(function (res) {
-				todoList.push(todo)
-				draw()
+			.then(res => {
+				get(draw)
 			})
 			.catch(logError)
 	}
@@ -37,19 +36,20 @@ export default class TodoService {
 	toggleTodoStatus(todoId, draw) {
 		var todo = {}
 
-		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 		todoApi.put(todoId, todo)
 			.then(function (res) {
 				let hm = todo.res[todoId].completed = !todo.res[todoId].completed
 				console.log(hm)
-				draw()
+				draw(_todoList)
 			})
 			.catch(logError)
 	}
 
-	removeTodo() {
-		// Umm this one is on you to write.... The method is a DELETE
-
+	removeTodo(todoId, draw) {
+		todoApi.delete(todoId).then(res => { this.getTodos(draw(_todoList)) })
 	}
 
+	get todoList() {
+		return _todoList
+	}
 }

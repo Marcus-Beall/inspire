@@ -8,7 +8,6 @@ let daWeather = {}
 export default class WeatherController {
 
 	constructor() {
-		//this will fire off get weather right away
 		this.getWeather()
 	}
 	getWeather() {
@@ -16,7 +15,6 @@ export default class WeatherController {
 			daWeather = weather;
 			console.log(weather)
 			this.drawWeather(daWeather.main.temp)
-			//What can you do with this weather object?
 		})
 	}
 	get weather() {

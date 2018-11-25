@@ -28,20 +28,13 @@
 			</div>
 		</div>
 		<div class="row justify-content-end fixed-bottom">
-			<nav class="navbar   navi">
-				<a class="navbar-brand" href="#">Your ToDos Go Here</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-				 aria-expanded="true" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="navbar-collapse collapse show" id="navbarColor02" style="">
-					<ul class="navbar-nav mr-auto" id="todo"></ul>
-					<form onsubmit="app.controllers.todoController.addToDoFromForm(input)">
-						<input class="form-control" type="text" placeholder="What todos do you have?"><button class="btn btn-secondary justify-content-center"
-						 type="submit">Submit</button>
 
-					</form>
-			</nav>
+			<span id="todos"></span>
+			<form onsubmit="app.controllers.todoController.addTodoFromForm()">
+				<input id="todo" class="form-control" type="text" placeholder="What todos do you have?" id="todoData"><button class="btn btn-secondary justify-content-center"
+				 type="submit">Submit</button>
+			</form>
+
 		</div>
 	</div>
 
